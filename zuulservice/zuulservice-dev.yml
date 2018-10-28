@@ -1,4 +1,4 @@
-zuul.ignored-services: "config-server", "spring-cloud-eureka", "spring boot admin"
+zuul.ignored-services: config-server, spring-cloud-eureka
 zuul.prefix:  /api
 zuul.routes.organizationservice: /organization/**
 zuul.routes.licensingservice: /licensing/**
