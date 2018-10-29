@@ -2,10 +2,14 @@ zuul.ignored-services: '*'
 zuul.prefix:  /api
 zuul.routes.organizationservice: /organization/**
 zuul.routes.licensingservice: /licensing/**
-zuul.routes.testservice: /test/**
+zuul.routes.specialroutesservice: /specialroutesservice/**
+#zuul.routes.authenticationservice: /auth/**
 #zuul.sensitiveHeaders: Authorization
 zuul.debug.request: true
-#hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 2
-#hystrix.command.licensingservice.execution.isolation.thread.timeoutInMilliseconds: 2
-#licensingservice.ribbon.ReadTimeout: 2
+#For configurations longer than five seconds you have to set both the Hystrix and the Ribbon timeouts.
+#set the Hystrix timeout for all of the services running through Zuul
+#hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 2500
+#hystrix.command.licensingservice.execution.isolation.thread.timeoutInMilliseconds: 3000
+#the Netflix Ribbon also times out any calls that take longer than five seconds.
+#licensingservice.ribbon.ReadTimeout: 2500
 signing.key: "345345fsdfsf5345"
